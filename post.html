@@ -1,0 +1,182 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="dark">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    
+    <title>contrastx | Technical Writeup</title>
+    <meta name="description" content="Detailed security analysis and exploit documentation by contrastx.">
+    <meta name="author" content="contrastx">
+    
+    <meta property="og:type" content="article">
+    <meta property="og:title" content="contrastx | Security Writeup">
+    <meta property="og:description" content="Technical documentation for vulnerability research and CTF challenges.">
+    <meta property="og:image" content="https://contrastx-writeups.vercel.app/assets/banner.png">
+
+    <meta property="twitter:card" content="summary_large_image">
+    <meta property="twitter:image" content="https://contrastx-writeups.vercel.app/assets/banner.png">
+
+    <meta name="google-site-verification" content="1mSbR5uK103kIENG4MTsjqUqDj8OhXG8KhCVlVGKae4" />
+
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.9.0/styles/github-dark.min.css">
+    <script src="https://cdn.jsdelivr.net/npm/marked/marked.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.9.0/highlight.min.js"></script>
+
+    <link rel="icon" type="image/x-icon" href="assets/favicon.ico">
+    <link rel="icon" type="image/png" href="assets/favicon.png">
+    <link rel="apple-touch-icon" sizes="180x180" href="assets/apple-touch-icon.png">
+    
+    <script defer src="/_vercel/insights/script.js"></script>
+</head>
+<body>
+    <nav>
+        <div class="container nav-wrapper">
+            <a href="index.html" class="logo">Nx<span>Strip</span></a>
+            
+            <ul class="nav-links">
+                <li><a href="https://contrastx.vercel.app/">About</a></li>
+                <li><a href="writeups.html">Writeups</a></li>
+            </ul>
+
+            <div class="nav-right">
+                <a href="writeups.html" class="btn-more" style="font-size: 0.8rem;">← Back</a>
+            </div>
+        </div>
+    </nav>
+
+    <main class="container section-padding">
+        <div id="content" class="markdown-body">
+            <p style="color: #58a6ff; font-family: 'JetBrains Mono', monospace;">[!] Establishing secure connection to database node...</p>
+        </div>
+    </main>
+
+    <footer>
+        <div class="container">
+            <p>&copy; 2026 contrastx. All rights reserved.</p>
+        </div>
+    </footer>
+
+    <script src="db.js"></script>
+    <script src="script.js"></script> 
+    
+    <script>
+        const urlParams = new URLSearchParams(window.location.search);
+        const fileName = urlParams.get('file');
+        const contentDiv = document.getElementById('content');
+
+        /**
+         * SEO & META INJECTION LOGIC
+         */
+        function injectMetadata(post) {
+            if (!post) return;
+
+            const baseUrl = "https://contrastx-writeups.vercel.app/post.html";
+            const canonicalUrl = `${baseUrl}?file=${fileName}`;
+
+            // 1. Update Browser Tab Title
+            document.title = `${post.title} | contrastx Intelligence`;
+
+            // 2. Update Standard Meta Description
+            updateTag('meta[name="description"]', 'content', post.excerpt);
+            
+            // 3. Update Keywords
+            if (post.keywords) {
+                updateTag('meta[name="keywords"]', 'content', post.keywords);
+            }
+
+            // 4. Update OpenGraph (Social Media)
+            updateTag('meta[property="og:title"]', 'content', post.title);
+            updateTag('meta[property="og:description"]', 'content', post.excerpt);
+            updateTag('meta[property="og:url"]', 'content', canonicalUrl);
+            
+            // 5. Update Twitter
+            updateTag('meta[property="twitter:title"]', 'content', post.title);
+            updateTag('meta[property="twitter:description"]', 'content', post.excerpt);
+
+            // 6. Inject/Update Canonical Link
+            let canonicalLink = document.querySelector('link[rel="canonical"]');
+            if (!canonicalLink) {
+                canonicalLink = document.createElement('link');
+                canonicalLink.setAttribute('rel', 'canonical');
+                document.head.appendChild(canonicalLink);
+            }
+            canonicalLink.setAttribute('href', canonicalUrl);
+        }
+
+        // Improved helper to find or create tags
+        function updateTag(selector, attr, value) {
+            let el = document.querySelector(selector);
+            if (!el) {
+                // If the meta tag doesn't exist, create it
+                el = document.createElement('meta');
+                if (selector.includes('property')) {
+                    const prop = selector.match(/property="(.+?)"/)[1];
+                    el.setAttribute('property', prop);
+                } else {
+                    const name = selector.match(/name="(.+?)"/)[1];
+                    el.setAttribute('name', name);
+                }
+                document.head.appendChild(el);
+            }
+            el.setAttribute(attr, value);
+        }
+
+        // Lookup postData in db.js
+        const postData = typeof writeups !== 'undefined' 
+            ? writeups.find(w => w.link.includes(fileName)) 
+            : null;
+
+        if (fileName) {
+            // Apply SEO injection immediately
+            if (postData) {
+                injectMetadata(postData);
+            }
+
+            fetch(`writeups/${fileName}`)
+                .then(response => {
+                    if (!response.ok) throw new Error("NODE_UNREACHABLE");
+                    return response.text();
+                })
+                .then(text => {
+                    contentDiv.innerHTML = marked.parse(text);
+                    
+                    if (!postData) {
+                        const cleanName = fileName.replace('.md', '').replace(/-/g, ' ').toUpperCase();
+                        document.title = `${cleanName} | contrastx Intelligence`;
+                    }
+                    
+                    hljs.highlightAll(); 
+
+                    if (typeof addCopyButtons === 'function') {
+                        addCopyButtons();
+                    }
+                })
+                .catch(err => {
+                    renderError("NODE_UNREACHABLE");
+                });
+        } else {
+            renderError("NO_FILE_SPECIFIED");
+        }
+
+        function renderError(code) {
+            contentDiv.innerHTML = `
+                <div style="text-align: center; padding: 40px 10px; font-family: 'Courier New', monospace;">
+                    <h1 style="font-size: clamp(3rem, 15vw, 5rem); color: #ff0000; text-shadow: 0 0 10px #ff0000; margin: 0;">404</h1>
+                    <div style="display: inline-block; max-width: 100%; overflow: hidden;">
+                        <p id="error-status" style="color: #00ff00; font-size: clamp(0.9rem, 4vw, 1.2rem); margin: 15px 0; border-right: 2px solid #00ff00; white-space: nowrap; overflow: hidden; width: 26ch; animation: typing 2s steps(26), blink .5s step-end infinite;">
+                            STATUS: ${code}...
+                        </p>
+                    </div>
+                    <p style="color: #888; font-size: 0.9rem; margin-bottom: 30px; line-height: 1.4;">
+                        The requested writeup is either redacted, moved, or does not exist in the current database.
+                    </p>
+                    <a href="writeups.html" style="background: #00ff00; color: #0a0a0a; padding: 12px 24px; text-decoration: none; font-weight: bold; border-radius: 2px; text-transform: uppercase; display: inline-block;">
+                        > RETURN_TO_HOME
+                    </a>
+                </div>
+            `;
+        }
+    </script>
+</body>
+</html>

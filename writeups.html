@@ -1,0 +1,133 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="dark">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    
+    <title>contrastx | Writeups</title>
+    <meta name="description" content="A comprehensive archive of cybersecurity walkthroughs, CTF solutions, and vulnerability research by contrastx.">
+    <meta name="keywords" content="HTB Writeups, THM Walkthroughs, CTF Solutions, Red Team, contrastx">
+    <meta name="author" content="contrastx">
+
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://contrastx-writeups.vercel.app/writeups.html">
+    <meta property="og:title" content="contrastx | Writeups Gallery">
+    <meta property="og:description" content="Explore the full database of security research and machine walkthroughs.">
+    <meta property="og:image" content="https://contrastx-writeups.vercel.app/assets/banner.png">
+
+    <meta property="twitter:card" content="summary_large_image">
+    <meta property="twitter:url" content="https://contrastx-writeups.vercel.app/writeups.html">
+    <meta property="twitter:title" content="contrastx | Writeups Gallery">
+    <meta property="twitter:description" content="Explore the full database of security research and machine walkthroughs.">
+    <meta property="twitter:image" content="https://contrastx-writeups.vercel.app/assets/banner.png">
+
+    <meta name="google-site-verification" content="1mSbR5uK103kIENG4MTsjqUqDj8OhXG8KhCVlVGKae4" />
+
+    <link rel="stylesheet" href="style.css">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600&family=JetBrains+Mono&display=swap" rel="stylesheet">
+
+    <link rel="icon" type="image/x-icon" href="assets/favicon.ico">
+    <link rel="icon" type="image/png" href="assets/favicon.png">
+    <link rel="apple-touch-icon" sizes="180x180" href="assets/apple-touch-icon.png">
+
+    <link rel="canonical" href="https://contrastx-writeups.vercel.app/writeups.html">
+    
+    <script defer src="/_vercel/insights/script.js"></script>
+
+    <style>
+        .filters { margin-bottom: 2rem; display: flex; gap: 1rem; flex-wrap: wrap; align-items: center; }
+        
+        /* Updated to support the search input */
+        .filter-dropdown {
+            background: var(--card-bg);
+            border: 1px solid var(--border);
+            color: var(--text-main);
+            padding: 10px 16px;
+            border-radius: 8px;
+            cursor: pointer;
+            font-family: 'Inter', sans-serif;
+            font-size: 0.9rem;
+            outline: none;
+            transition: border-color 0.3s;
+        }
+
+        /* Styling for the text input specifically */
+        input#search-input.filter-dropdown {
+            cursor: text;
+            flex: 1;
+            min-width: 250px;
+        }
+
+        .filter-dropdown:focus { border-color: var(--accent); }
+        
+        .reset-btn {
+            background: transparent; color: var(--text-dim); border: none; cursor: pointer;
+            font-family: 'JetBrains Mono', monospace; font-size: 0.8rem;
+            padding: 10px 5px;
+        }
+        .reset-btn:hover { color: var(--accent); }
+
+        @media (max-width: 600px) {
+            input#search-input.filter-dropdown {
+                width: 100%;
+                flex: none;
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <nav>
+        <div class="container nav-wrapper">
+            <a href="index.html" class="logo">CONTRAST<span>X</span></a>
+            
+            <ul class="nav-links">
+                <li><a href="https://contrastx.vercel.app/">About</a></li>
+                <li><a href="writeups.html">Writeups</a></li>
+            </ul>
+
+            <div class="nav-right">
+                <button id="theme-toggle" aria-label="Toggle Theme">
+                    <span class="icon">🌙</span>
+                </button>
+            </div>
+        </div>
+    </nav>
+
+    <main class="container section-padding">
+        <h1 style="margin-bottom: 2rem;">All Writeups</h1>
+        
+        <div class="filters">
+            <input type="text" id="search-input" placeholder="Search by title or content..." class="filter-dropdown">
+
+            <select id="platform-filter" class="filter-dropdown">
+                <option value="all">🎯 Select Platform...</option>
+                <option value="HTB">HackTheBox (HTB)</option>
+                <option value="THM">TryHackMe (THM)</option>
+                <option value="ROOT-ME">ROOT-ME</option>
+                <option value="PortSwigger">PortSwigger</option>
+            </select>
+
+            <select id="ctf-filter" class="filter-dropdown">
+                <option value="all">🚩 Select CTF Event...</option>
+                <option value="cybergame">cybergame</option>
+                <option value="CSCG">CSCG</option>
+                <option value="BKCTF">BKCTF</option>
+            </select>
+
+            <button id="reset-btn" class="reset-btn">[ Reset Filters ]</button>
+        </div>
+
+        <div id="all-writeups-grid" class="grid writeups-grid"></div>
+    </main>
+
+    <footer>
+        <div class="container">
+            <p>&copy; 2026 contrastx. All rights reserved.</p>
+        </div>
+    </footer>
+
+    <script src="db.js"></script>
+    <script src="script.js"></script>
+</body>
+</html>

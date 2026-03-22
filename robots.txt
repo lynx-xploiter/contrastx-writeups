@@ -1,0 +1,4 @@
+User-agent: *
+Allow: /
+
+Sitemap: https://contrastx-writeups.vercel.app/sitemap.xml

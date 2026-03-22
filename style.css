@@ -1,0 +1,566 @@
+/* ============================================================
+   VARIABLES & THEMES
+   ============================================================ */
+:root[data-theme="dark"] {
+    --bg: #0d1117;
+    --card-bg: #161b22;
+    --text-main: #c9d1d9;
+    --text-dim: #8b949e;
+    --accent: #58a6ff;
+    --border: #30363d;
+    --header-color: #ffffff;
+}
+
+:root[data-theme="light"] {
+    --bg: #f6f8fa;
+    --card-bg: #ffffff;
+    --text-main: #24292f;
+    --text-dim: #57606a;
+    --accent: #0969da;
+    --border: #d0d7de;
+    --header-color: #1b1f24;
+}
+
+/* ============================================================
+   BASE STYLES
+   ============================================================ */
+* { 
+    box-sizing: border-box; 
+    margin: 0; 
+    padding: 0; 
+    transition: background 0.3s, color 0.3s; 
+}
+
+body {
+    background-color: var(--bg);
+    color: var(--text-main);
+    font-family: 'Inter', sans-serif;
+    line-height: 1.6;
+    overflow-x: hidden;
+    word-wrap: break-word;
+    overflow-wrap: break-word;
+}
+
+.container { 
+    max-width: 900px; 
+    margin: 0 auto; 
+    padding: 0 20px; 
+}
+
+.section-padding { 
+    padding: 3rem 0; 
+}
+
+.highlight { 
+    color: var(--accent); 
+}
+
+/* ============================================================
+   NAVIGATION (Centered Links & Larger Logo)
+   ============================================================ */
+nav { 
+    padding: 1rem 0; 
+    border-bottom: 1px solid var(--border); 
+    position: sticky; 
+    top: 0; 
+    background: var(--bg); 
+    z-index: 100; 
+}
+
+nav .nav-wrapper { 
+    display: flex; 
+    justify-content: space-between; 
+    align-items: center; 
+    position: relative; 
+}
+
+.logo { 
+    font-family: 'JetBrains Mono', monospace; 
+    font-weight: 600; 
+    text-decoration: none; 
+    color: var(--header-color); 
+    font-size: 1.5rem; 
+}
+
+.logo span { color: var(--accent); }
+
+.nav-links { 
+    display: flex; 
+    list-style: none; 
+    gap: 2rem; 
+    position: absolute; 
+    left: 50%; 
+    transform: translateX(-50%); 
+}
+
+.nav-links a { 
+    text-decoration: none; 
+    color: var(--text-dim); 
+    font-size: 1rem; 
+    font-weight: 600; 
+}
+
+.nav-links a:hover,
+.nav-links a.active { 
+    color: var(--accent); 
+}
+
+.nav-right { 
+    display: flex; 
+    align-items: center; 
+    gap: 1.5rem; 
+}
+
+#theme-toggle { 
+    background: var(--card-bg); 
+    border: 1px solid var(--border); 
+    padding: 8px; 
+    border-radius: 50%; 
+    cursor: pointer; 
+    display: flex; 
+    align-items: center; 
+    justify-content: center; 
+    width: 35px; 
+    height: 35px; 
+}
+
+/* ============================================================
+   FILTERS & SEARCH BAR
+   ============================================================ */
+.filters { 
+    margin-bottom: 2rem; 
+    display: flex; 
+    gap: 1rem; 
+    flex-wrap: wrap; 
+    align-items: center; 
+}
+
+.filter-dropdown {
+    background: var(--card-bg);
+    border: 1px solid var(--border);
+    color: var(--text-main);
+    padding: 10px 16px;
+    border-radius: 8px;
+    cursor: pointer;
+    font-family: 'Inter', sans-serif;
+    font-size: 0.9rem;
+    outline: none;
+    transition: border-color 0.3s;
+}
+
+input#search-input.filter-dropdown {
+    cursor: text;
+    flex: 1;
+    min-width: 250px;
+}
+
+.filter-dropdown:focus { border-color: var(--accent); }
+
+.reset-btn {
+    background: transparent; 
+    color: var(--text-dim); 
+    border: none; 
+    cursor: pointer;
+    font-family: 'JetBrains Mono', monospace; 
+    font-size: 0.8rem;
+}
+
+.reset-btn:hover { color: var(--accent); }
+
+/* ============================================================
+   WRITEUP CARDS GRID
+   ============================================================ */
+.section-header { 
+    display: flex; 
+    justify-content: space-between; 
+    align-items: center; 
+    margin-bottom: 1.5rem; 
+}
+
+.btn-more { 
+    text-decoration: none; 
+    color: var(--accent); 
+    font-weight: 600; 
+    font-size: 0.9rem; 
+}
+
+.divider { 
+    border: 0; 
+    border-top: 1px solid var(--border); 
+    margin-bottom: 2rem; 
+}
+
+.grid { 
+    display: grid; 
+    grid-template-columns: repeat(auto-fill, minmax(280px, 1fr)); 
+    gap: 1.2rem; 
+}
+
+.writeups-grid {
+    grid-template-columns: 1fr;
+    gap: 1.6rem;
+    align-content: start;
+    min-height: 32vh;
+}
+
+.empty-state {
+    min-height: 32vh;
+    display: grid;
+    place-items: center;
+    text-align: center;
+    color: var(--text-dim);
+    border: 1px dashed var(--border);
+    border-radius: 12px;
+    background: color-mix(in srgb, var(--card-bg) 88%, transparent);
+    padding: 1.5rem;
+}
+
+.card {
+    background: var(--card-bg);
+    border: 1px solid var(--border);
+    padding: 1.5rem;
+    border-radius: 12px;
+    text-decoration: none;
+    display: flex;
+    flex-direction: column;
+    height: 100%;
+}
+
+.card:hover { 
+    border-color: var(--accent); 
+    transform: translateY(-3px); 
+}
+
+.platform-tag { 
+    font-family: 'JetBrains Mono'; 
+    font-size: 0.7rem; 
+    text-transform: uppercase; 
+    color: var(--accent); 
+    margin-bottom: 0.5rem; 
+}
+
+.card h3 { 
+    color: var(--header-color); 
+    margin-bottom: 0.5rem; 
+    font-size: 1.1rem; 
+}
+
+.card p { 
+    color: var(--text-dim); 
+    font-size: 0.9rem; 
+    flex-grow: 1; 
+}
+
+/* ============================================================
+   MARKDOWN READER (POSTS)
+   ============================================================ */
+.markdown-body { 
+    font-size: 1.05rem; 
+    line-height: 1.7; 
+    max-width: 100%; 
+    margin: 0 auto; 
+    word-wrap: break-word; 
+}
+
+/* Metadata Block styling (Date, Platform, etc.) */
+.markdown-body blockquote {
+    border-left: 4px solid var(--accent);
+    padding: 1rem 1.5rem;
+    background: var(--card-bg);
+    border-radius: 0 8px 8px 0;
+    margin: 1.5rem 0;
+    color: var(--text-main);
+}
+
+.markdown-body blockquote p {
+    margin: 0;
+    display: flex;
+    flex-direction: column;
+    gap: 0.5rem;
+}
+
+.markdown-body h1, .markdown-body h2, .markdown-body h3 { 
+    color: var(--header-color); 
+    margin-top: 2rem; 
+    margin-bottom: 1rem; 
+    font-weight: 600; 
+}
+
+.markdown-body h1 { 
+    border-bottom: 2px solid var(--accent); 
+    padding-bottom: 0.5rem; 
+    font-size: 1.8rem; 
+}
+
+.markdown-body pre { 
+    background: #000 !important; 
+    padding: 1.2rem; 
+    border-radius: 8px; 
+    border: 1px solid var(--border); 
+    overflow-x: auto; 
+    margin: 1.5rem 0; 
+}
+
+.markdown-body code { 
+    font-family: 'JetBrains Mono', monospace; 
+    font-size: 0.9rem; 
+}
+
+.markdown-body img { 
+    max-width: 100%; 
+    height: auto; 
+    border-radius: 8px; 
+    border: 1px solid var(--border); 
+    margin: 1.5rem 0; 
+}
+
+/* ============================================================
+   FOOTER
+   ============================================================ */
+footer {
+    padding: 0;
+    text-align: center;
+    border-top: 1px solid var(--border);
+    margin-top: clamp(4rem, 8vw, 6rem);
+    background: linear-gradient(180deg, rgba(0, 0, 0, 0) 0%, rgba(0, 0, 0, 0.12) 100%), var(--bg);
+    color: var(--text-dim);
+    font-size: 0.9rem;
+}
+
+footer .container {
+    min-height: 92px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+footer p {
+    letter-spacing: 0.02em;
+}
+
+/* ============================================================
+   MOBILE RESPONSIVENESS 
+   ============================================================ */
+@media (max-width: 600px) {
+    /* Gives the whole page breathing room on the sides */
+    .container { padding: 0 15px; }
+    .section-padding { padding: 2rem 0; }
+    
+    /* Pulls the logo and moon icon away from the screen bezels */
+    nav { padding: 1rem 15px; }
+    
+    nav .nav-wrapper { 
+        position: static; 
+        flex-wrap: wrap; 
+        justify-content: space-between; /* Keeps logo left, moon right */
+        gap: 1rem; 
+    }
+    
+    .nav-links { 
+        position: static; 
+        transform: none; 
+        width: 100%; 
+        justify-content: center;
+        order: 3;
+        gap: 1.5rem;
+        margin-top: 0.5rem; /* Space between header and links */
+    }
+
+    /* Forces cards to fit the mobile screen perfectly */
+    .grid {
+        grid-template-columns: 1fr; 
+    }
+
+    .writeups-grid {
+        gap: 1.2rem;
+        min-height: 24vh;
+    }
+
+    .empty-state {
+        min-height: 24vh;
+        padding: 1.25rem;
+    }
+
+    input#search-input.filter-dropdown {
+        width: 100%;
+        flex: none;
+        margin-bottom: 0.5rem; /* Adds space if filters stack */
+    }
+
+    .logo { font-size: 1.3rem; }
+
+    /* Shrink the big headers slightly on mobile so they fit */
+    .markdown-body h1 { font-size: 1.5rem; }
+    .markdown-body h2 { font-size: 1.3rem; }
+    
+    /* Ensure markdown blocks don't touch the very edges */
+    .markdown-body blockquote {
+        padding: 1rem;
+        margin: 1rem 0;
+    }
+
+    footer {
+        margin-top: 3rem;
+    }
+
+    footer .container {
+        min-height: 78px;
+    }
+}
+
+/* ============================================================
+   LIST FIXES (Aligns numbers/bullets & adds Blue Accent)
+   ============================================================ */
+
+/* 1. Fix for list numbers/bullets breaking out of the container */
+.markdown-body ol, 
+.markdown-body ul {
+    padding-left: 2rem; 
+    margin-bottom: 1.5rem;
+}
+
+.markdown-body li {
+    margin-bottom: 0.5rem;
+}
+
+/* 2. Fix for nested lists spacing */
+.markdown-body li > ul,
+.markdown-body li > ol {
+    margin-top: 0.5rem;
+    margin-left: 1rem;
+}
+
+/* 3. Blue Red-Team Style Numbers for Ordered Lists */
+.markdown-body ol {
+    list-style: none; /* Removes default numbers */
+    counter-reset: my-awesome-counter;
+}
+
+.markdown-body ol li {
+    counter-increment: my-awesome-counter;
+    position: relative;
+}
+
+.markdown-body ol li::before {
+    content: counter(my-awesome-counter) ". ";
+    color: var(--accent); /* Uses your blue theme color */
+    font-weight: bold;
+    font-family: 'JetBrains Mono', monospace;
+    margin-right: 8px;
+}
+
+/* ============================================================
+   CUSTOM SCROLLBARS (Code Blocks & Global)
+   ============================================================ */
+
+/* Target the scrollbar for code blocks specifically */
+.markdown-body pre::-webkit-scrollbar {
+    height: 8px; /* Height of horizontal scrollbar */
+    width: 8px;  /* Width of vertical scrollbar */
+}
+
+.markdown-body pre::-webkit-scrollbar-track {
+    background: #000; /* Matches your code block background */
+    border-radius: 8px;
+}
+
+.markdown-body pre::-webkit-scrollbar-thumb {
+    background: var(--border); /* Subtle grey thumb */
+    border-radius: 8px;
+    border: 2px solid #000; /* Creates a "padding" effect */
+}
+
+.markdown-body pre::-webkit-scrollbar-thumb:hover {
+    background: var(--accent); /* Turns blue when you hover over it */
+}
+
+/* Optional: Apply a slim theme-matching scrollbar to the whole page */
+::-webkit-scrollbar {
+    width: 10px;
+}
+
+::-webkit-scrollbar-track {
+    background: var(--bg);
+}
+
+::-webkit-scrollbar-thumb {
+    background: var(--border);
+    border-radius: 10px;
+    border: 2px solid var(--bg);
+}
+
+::-webkit-scrollbar-thumb:hover {
+    background: var(--accent);
+}
+
+/* ============================================================
+   COPY BUTTON STYLING
+   ============================================================ */
+.markdown-body pre {
+    position: relative; /* Allows button to stay in the corner */
+}
+
+.copy-code-button {
+    position: absolute;
+    top: 0.5rem;
+    right: 0.5rem;
+    background: var(--card-bg);
+    border: 1px solid var(--border);
+    color: var(--text-dim);
+    padding: 4px 8px;
+    border-radius: 4px;
+    cursor: pointer;
+    font-size: 0.75rem;
+    font-family: 'JetBrains Mono', monospace;
+    transition: all 0.2s;
+}
+
+.copy-code-button:hover {
+    border-color: var(--accent);
+    color: var(--accent);
+    background: #000;
+}
+
+.copy-code-button:active {
+    transform: scale(0.95);
+}
+
+/* Styling for the Web/Category tag to make it look distinct */
+.card-tags {
+    display: flex;
+    gap: 10px;
+    margin-bottom: 0.5rem;
+    align-items: center;
+}
+
+.category-tag {
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 0.7rem;
+    text-transform: uppercase;
+    color: var(--text-dim); /* Grayer/dimmer than the blue accent */
+    border: 1px solid var(--border);
+    padding: 2px 6px;
+    border-radius: 4px;
+}
+
+/* =========================================
+   contrastx BRANDING SYNC (Writeups Site)
+   ========================================= */
+
+/* Logo Alignment: Nx (White) Strip (Blue) */
+.logo {
+    color: var(--header-color) !important;
+}
+
+.logo span {
+    color: var(--accent) !important;
+}
+
+/* Hero Alignment: Hi, I'm Nx (White) Strip (Blue) */
+.about-content h1 {
+    color: var(--header-color) !important;
+}
+
+.about-content h1 .highlight {
+    color: var(--accent) !important;
+}
