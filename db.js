@@ -45,4 +45,16 @@ const writeups = [
         link: "post.html?file=rootme-xss-stored-1.md",
         keywords: "Stored XSS payload for cookie theft, Blind XSS tutorial, Root-Me XSS stored 1 solution, session hijacking via XSS, JavaScript exfiltration"
     }
+
+    {
+        title: "Printer Shares-3",
+        date: "2026-03-23",
+        category: "Reverse Engineering",
+        tag: "ROOR-MW",
+        excerpt: "Using Reverse Engineering to find the flag and Sharp your skills.",
+        link: "post.html?file=rootme-reverse engineering skill test.md",
+        // AlWAYS ADD: High-intent phrases people actually search for
+        keywords: "Root-Me SQL Reverse Engineering walkthrough, Reverse Engineering, Printer, Printer Shares-3, reverse engineering writeups"
+    }
+
 ];
