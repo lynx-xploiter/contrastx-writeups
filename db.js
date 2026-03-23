@@ -44,7 +44,7 @@ const writeups = [
         excerpt: "Using stored JavaScript payloads to exfiltrate administrator session cookies silently.",
         link: "post.html?file=rootme-xss-stored-1.md",
         keywords: "Stored XSS payload for cookie theft, Blind XSS tutorial, Root-Me XSS stored 1 solution, session hijacking via XSS, JavaScript exfiltration"
-    }
+    },
 
     {
         title: "Printer Shares-3",
