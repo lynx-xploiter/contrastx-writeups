@@ -52,7 +52,7 @@ const writeups = [
         category: "Reverse Engineering",
         tag: "ROOR-MW",
         excerpt: "Using Reverse Engineering to find the flag and Sharp your skills.",
-        link: "post.html?file=rootme-reverse engineering skill test.md",
+        link: "post.html?file=rootme-printer-share-3.md",
         // AlWAYS ADD: High-intent phrases people actually search for
         keywords: "Root-Me SQL Reverse Engineering walkthrough, Reverse Engineering, Printer, Printer Shares-3, reverse engineering writeups"
     }
