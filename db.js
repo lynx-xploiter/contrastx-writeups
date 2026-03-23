@@ -50,7 +50,7 @@ const writeups = [
         title: "Printer Shares-3",
         date: "2026-03-23",
         category: "Reverse Engineering",
-        tag: "ROOR-MW",
+        tag: "ROOR-ME",
         excerpt: "Using Reverse Engineering to find the flag and Sharp your skills.",
         link: "post.html?file=rootme-printer-share-3.md",
         // AlWAYS ADD: High-intent phrases people actually search for
