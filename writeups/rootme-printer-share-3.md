@@ -24,6 +24,7 @@
 3. USE THE FOLLOW SCRIPT
 
 
+```bash
 #!/bin/bash
 
 # Aggressive flag hunter - finds everything
@@ -106,4 +107,4 @@ rm -rf $OUTPUT_DIR
 echo "$(date) - Debug script completed" >> cron.log
 
 chmod +x evil.sh
-
+```
