@@ -1,7 +1,7 @@
 const writeups = [
     {
         title: "SQL Injection - File Reading & Source Analysis",
-        date: "2026-03-20",
+        date: "2026-01-20",
         category: "Web",
         tag: "ROOT-ME",
         excerpt: "Leveraging UNION-based SQLi to read server-side source code and reverse XOR-encrypted credentials.",
@@ -18,6 +18,20 @@ const writeups = [
         link: "post.html?file=rootme-sql-injection-auth.md",
         keywords: "SQLi bypass login page, SQL tautology examples, Root-Me SQL injection auth bypass, web application penetration testing, CTF walkthrough"
     },
+
+    {
+        title: "my_prectical_attack_for_data_dump.md",
+        date: "2026-5-10",
+        category: "Reverse Engineering",
+        tag: "ROOR-ME",
+        excerpt: "Using smbclient to access external USB disk (F partition).",
+        link: "post.html?file=my_prectical_attack_for_data_dump.md",
+        
+        // AlWAYS ADD: High-intent phrases people actually search for
+        keywords: "Root-Me Smb Exploitation, Port 445 exploitation, Eternablue, Access F drive using smbclient, real hacking attack"
+    },
+    
+    
     {
         title: "XSS Reflected: Attribute Injection",
         date: "2026-03-20",
