@@ -65,7 +65,7 @@ const writeups = [
         date: "2026-03-23",
         category: "Reverse Engineering",
         tag: "ROOR-ME",
-        excerpt: "Hacking a Whatsapp and a Google photos gallery using social engineering",
+        excerpt: "an Pretty good writup of a reverse engineering challenge",
         link: "post.html?file=rootme-printer-share-3.md",
         // AlWAYS ADD: High-intent phrases people actually search for
         keywords: "Root-Me SQL Reverse Engineering walkthrough, Reverse Engineering, Printer, Printer Shares-3, reverse engineering writeups"
@@ -76,7 +76,7 @@ const writeups = [
         date: "2026-05-11",
         category: "Social Engineering",
         tag: "PracticalAttacks",
-        excerpt: "Stealing administrator cookies by breaking out of HTML attributes and using passive event handlers.",
+        excerpt: "Hacking a Whatsapp and a Google photos gallery using social engineering.",
         link: "post.html?file=my_whatsapp_hack.md",
         keywords: "phone's password theft, hacking using social engineering, gallery hacking, Whatsapp hacking, linked device Whatsapp hacking"
     }
