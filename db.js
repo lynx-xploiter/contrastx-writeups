@@ -23,7 +23,7 @@ const writeups = [
         title: "my_prectical_attack_for_data_dump.md",
         date: "2026-5-10",
         category: "Reverse Engineering",
-        tag: "ROOR-ME",
+        tag: "ROOT-ME",
         excerpt: "Using smbclient to access external USB disk (F partition).",
         link: "post.html?file=my_prectical_attack_for_data_dump.md",
         
@@ -65,10 +65,20 @@ const writeups = [
         date: "2026-03-23",
         category: "Reverse Engineering",
         tag: "ROOR-ME",
-        excerpt: "Using Reverse Engineering to find the flag and Sharp your skills.",
+        excerpt: "Hacking a Whatsapp and a Google photos gallery using social engineering",
         link: "post.html?file=rootme-printer-share-3.md",
         // AlWAYS ADD: High-intent phrases people actually search for
         keywords: "Root-Me SQL Reverse Engineering walkthrough, Reverse Engineering, Printer, Printer Shares-3, reverse engineering writeups"
+    },
+
+        {
+        title: "my_whatsapp_hack.md",
+        date: "2026-05-11",
+        category: "Web",
+        tag: "ROOT-ME",
+        excerpt: "Stealing administrator cookies by breaking out of HTML attributes and using passive event handlers.",
+        link: "post.html?file=my_whatsapp_hack.md",
+        keywords: "phone's password theft, hacking using social engineering, gallery hacking, Whatsapp hacking, linked device Whatsapp hacking"
     }
 
 ];
