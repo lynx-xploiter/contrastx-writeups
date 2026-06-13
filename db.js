@@ -30,7 +30,19 @@ const writeups = [
         // AlWAYS ADD: High-intent phrases people actually search for
         keywords: "Root-Me Smb Exploitation, Port 445 exploitation, Eternablue, Access F drive using smbclient, real hacking attack"
     },
-    
+
+
+        {
+        title: "images_stealing_using_a_usb.md",
+        date: "2024-22-12",
+        category: "Social Engineering",
+        tag: "PracticalAttacks",
+        excerpt: "Data stealing Using A Hand Generated Rubbery Ducky.",
+        link: "post.html?file=images_stealing_using_a_usb.md",
+        
+        // AlWAYS ADD: High-intent phrases people actually search for
+        keywords: "Root-Me Smb Exploitation, Port 445 exploitation, Eternablue, Access F drive using smbclient, real hacking attack"
+    },
     
     {
         title: "XSS Reflected: Attribute Injection",
