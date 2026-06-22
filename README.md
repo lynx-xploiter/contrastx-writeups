@@ -1,6 +1,6 @@
 # contrastx| Cybersecurity Writeups 🚩
 
-A collection of detailed writeups covering CTF challenges, VAPT research, and technical walkthroughs. Hosted at [contrastx-writeups.vercel.app](https://contrastx-writeups.vercel.app/).
+A collection of detailed writeups covering CTF challenges, VAPT research, and technical walkthroughs. Hosted at [contrastx-writeups.vercel.app](https://contrastx-writeups.web.app/).
 
 ## 📖 Content Overview
 
