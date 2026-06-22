@@ -1,37 +1,37 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   <url>
-    <loc>https://contrastx-writeups.vercel.app/</loc>
+    <loc>https://contrastx-writeups.web.app/</loc>
     <lastmod>2026-06-22</lastmod>
     <priority>1.0</priority>
   </url>
   <url>
-    <loc>https://contrastx-writeups.vercel.app/writeups.html</loc>
+    <loc>https://contrastx-writeups.web.app/writeups.html</loc>
     <lastmod>2026-06-22</lastmod>
     <priority>0.8</priority>
   </url>
   <url>
-    <loc>https://contrastx-writeups.vercel.app/post.html?file=rootme-sqli-file-read.md</loc>
+    <loc>https://contrastx-writeups.web.app/post.html?file=rootme-sqli-file-read.md</loc>
     <lastmod>2026-06-22</lastmod>
     <priority>0.7</priority>
   </url>
   <url>
-    <loc>https://contrastx-writeups.vercel.app/post.html?file=rootme-sql-injection-auth.md</loc>
+    <loc>https://contrastx-writeups.web.app/post.html?file=rootme-sql-injection-auth.md</loc>
     <lastmod>2026-06-22</lastmod>
     <priority>0.7</priority>
   </url>
   <url>
-    <loc>https://contrastx-writeups.vercel.app/post.html?file=rootme-xss-reflected.md</loc>
+    <loc>https://contrastx-writeups.web.app/post.html?file=rootme-xss-reflected.md</loc>
     <lastmod>2026-06-22</lastmod>
     <priority>0.7</priority>
   </url>
   <url>
-    <loc>https://contrastx-writeups.vercel.app/post.html?file=rootme-xss-server-side.md</loc>
+    <loc>https://contrastx-writeups.web.app/post.html?file=rootme-xss-server-side.md</loc>
     <lastmod>2026-06-22</lastmod>
     <priority>0.7</priority>
   </url>
   <url>
-    <loc>https://contrastx-writeups.vercel.app/post.html?file=rootme-xss-stored-1.md</loc>
+    <loc>https://contrastx-writeups.web.app/post.html?file=rootme-xss-stored-1.md</loc>
     <lastmod>2026-06-22</lastmod>
     <priority>0.7</priority>
   </url>
